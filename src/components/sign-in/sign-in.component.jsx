@@ -58,6 +58,7 @@ const SignIn = () => {
                         label='Sign in'
                     />
                     <CustomButton
+                        type='button'
                         label='Sign in with Google'
                         onClick={signInWithGoogle}
                         isGoogleSignIn

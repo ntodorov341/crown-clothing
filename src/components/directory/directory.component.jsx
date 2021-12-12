@@ -33,23 +33,19 @@ const data = [
     }
 ];
 
-const Directory = () => {
-    const [sections, setSections] = React.useState(data);
-
-    return (
-        <div className="directory-menu">
-            {
-                sections.map(({ title, imageUrl, size }) => (
-                    <MenuItem
-                        key={imageUrl}
-                        title={title.toUpperCase()}
-                        imageUrl={imageUrl}
-                        size={size}
-                    />
-                ))
-            }
-        </div>
-    )
-}
+const Directory = () => (
+    <div className="directory-menu">
+        {
+            data.map(({ title, imageUrl, size }) => (
+                <MenuItem
+                    key={imageUrl}
+                    title={title.toUpperCase()}
+                    imageUrl={imageUrl}
+                    size={size}
+                />
+            ))
+        }
+    </div>
+)
 
 export default Directory;

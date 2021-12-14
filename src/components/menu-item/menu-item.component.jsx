@@ -13,7 +13,7 @@ const MenuItem = (props) => {
             />
             <div className="content-container">
                 <h1 className="title">{title}</h1>
-                <span clasName="subtitle">SHOP NOW</span>
+                <span className="subtitle">SHOP NOW</span>
             </div>
         </div>
     )

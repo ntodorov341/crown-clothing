@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleCartHidden } from '../../redux/cart/cart.actions';
 
 import { auth } from '../../firebase/firebase.utils';
+
+import CartIcon from '../cart-icon/cart-icon.component';
+import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 
 import { ReactComponent as Logo } from '../../assets/crown.svg';
 
@@ -10,6 +14,9 @@ import './header.styles.scss';
 
 const Header = () => {
     const currentUser = useSelector((state) => state.user.currentUser);
+    const hidden = useSelector((state) => state.cart.hidden);
+
+    const dispatch = useDispatch();
 
     return (
         <div className='header'>
@@ -37,7 +44,11 @@ const Header = () => {
                         </Link>
                     )
                 }
+                <div onMouseEnter={() => dispatch(toggleCartHidden(true))} onMouseLeave={() => dispatch(toggleCartHidden(false))}>
+                    <CartIcon />
+                </div>
             </div>
+            {hidden ? null : <CartDropdown />}
         </div>
     )
 };

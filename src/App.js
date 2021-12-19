@@ -33,8 +33,6 @@ const App = () => {
     return () => unsubscribeFromAuth();
   }, [dispatch]);
 
-  console.log(currentUser);
-
   return (
     <div>
       <Header />

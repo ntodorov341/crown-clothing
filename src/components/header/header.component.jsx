@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleCartHidden } from '../../redux/cart/cart.actions';
+import { selectCartHidden } from '../../redux/cart/cart.selectors';
+import { selectCurrentUser } from '../../redux/user/user.selectors';
 
 import { auth } from '../../firebase/firebase.utils';
 
@@ -13,8 +15,12 @@ import { ReactComponent as Logo } from '../../assets/crown.svg';
 import './header.styles.scss';
 
 const Header = () => {
-    const currentUser = useSelector((state) => state.user.currentUser);
-    const hidden = useSelector((state) => state.cart.hidden);
+    const currentUser = useSelector(
+        (state) => selectCurrentUser(state),
+    );
+    const hidden = useSelector(
+        (state) => selectCartHidden(state),
+    );
 
     const dispatch = useDispatch();
 

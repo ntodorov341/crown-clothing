@@ -1,15 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import { ReactComponent as ShoppingCart } from '../../assets/shopping-bag.svg';
-import { useSelector } from 'react-redux';
+import { selectCartItemsCount } from '../../redux/cart/cart.selectors';
 
 import './cart-icon.styles.scss';
 
 const CartIcon = () => {
     const itemCount = useSelector(
-        (state) => state.cart.cartItems.reduce(
-            (accumulatedQuantity, item) => accumulatedQuantity + item.quantity, 0,
-        ),
+        (state) => selectCartItemsCount(state)
     );
     return (
         <div className='cart-icon'>

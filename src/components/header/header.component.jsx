@@ -50,7 +50,7 @@ const Header = () => {
                         </Link>
                     )
                 }
-                <div onMouseEnter={() => dispatch(toggleCartHidden(true))} onMouseLeave={() => dispatch(toggleCartHidden(false))}>
+                <div onClick={() => dispatch(toggleCartHidden(!hidden))}>
                     <CartIcon />
                 </div>
             </div>

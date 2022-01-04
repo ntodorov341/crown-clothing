@@ -7,6 +7,7 @@ import { setCurrentUser } from './redux/user/user.actions';
 
 import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shoppage/shoppage.component';
+import CollectionPage from './pages/collection/collection.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import CheckoutPage from './pages/checkout/checkout.component';
 
@@ -46,9 +47,10 @@ const App = () => {
       <Header />
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/shop' element={<ShopPage />} />
-        <Route path='/checkout' element={<CheckoutPage />} />
-        <Route path='/signin' element={currentUser ? <Navigate to='/' /> : <SignInAndSignUpPage />} />
+        <Route path='shop' element={<ShopPage />} />
+        <Route path='shop/:collectionId' element={<CollectionPage />} />
+        <Route path='checkout' element={<CheckoutPage />} />
+        <Route path='signin' element={currentUser ? <Navigate to='/' /> : <SignInAndSignUpPage />} />
       </Routes>
     </div>
   );
